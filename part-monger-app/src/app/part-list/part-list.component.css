@@ -1,0 +1,65 @@
+.pageContainer {
+    padding: 2em;
+}
+
+.partRow, .partRowHeaders {
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.row, .partRow, .partRowHeaders {
+    display: flex;
+    align-items: center;
+}
+
+.partRow {
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.partRow:hover {
+    background-color: #0082ca;
+    color: #fff;
+    cursor: pointer;
+}
+
+.partRowHeaders {
+    font-weight: 600;
+}
+
+.partImage {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.appButton {
+    background-color: #0082ca;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.6em 1.1em;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.inStock {
+    float: right;
+}
+
+/** Media Queries **/
+
+@media screen and (max-width: 767px) {
+    .inStock {
+        margin: 0.5em 0;
+        float: left;
+    }
+
+    .partName {
+        margin: 0.5em 0;
+    }
+
+    .partRowHeaders {
+        display: none;
+    }
+}
