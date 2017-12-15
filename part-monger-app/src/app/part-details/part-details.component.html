@@ -1,0 +1,46 @@
+<!-- Heading and Buttons -->
+<div *ngIf="selectedPart">
+  <div class="row">
+    <div class="col-12">
+      <input [(ngModel)]="selectedPart.name">
+      <br>
+      <h4>Part Number: {{selectedPart?.partNumber}}</h4>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12 col-lg-8">
+      <h5>Description:</h5>
+      <textarea [(ngModel)]="selectedPart.description"></textarea>
+    </div>
+    <div class="col-xs-12 col-lg-4">
+      <img class="partImage float-right" src="{{selectedPart?.image}}">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <h5>Cost</h5>
+      <label for="cost">$</label>
+      <input name="cost" [(ngModel)]="selectedPart.cost">
+    </div>
+  </div>
+  <br>
+  <div *ngIf="selectedInventory" class="row">
+    <div class="col-12">
+      Quantity In-Stock: {{quantity}}
+    </div>
+  </div>
+  <div *ngIf="selectedInventory" class="row">
+    <div class="col-12">
+      <button class="receiveButton appButton" (click)="receivePart()">Receive Part</button>
+      <button class="consumeButton appButton" (click)="consumePart()">Consume Part</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <button class="appButton float-left" (click)="updatePart(selectedPart, selectedInventory)">Update Part</button>
+    </div>
+  </div>
+</div>

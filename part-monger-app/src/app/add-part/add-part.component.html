@@ -1,0 +1,44 @@
+<div *ngIf="newPart">
+  <div class="row">
+    <h2>Add Part</h2>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <h5>Part Name:</h5>
+          <input [(ngModel)]="newPart.name">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <h5>Part Number:</h5>
+          <input [(ngModel)]="newPart.partNumber">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <h5>Description:</h5>
+          <textarea [(ngModel)]="newPart.description"></textarea>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <h5>Cost</h5>
+          <label for="cost">$</label>
+          <input name="cost" [(ngModel)]="newPart.cost">
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <button class="appButton float-left" (click)="addPart(newPart)">Add Part</button>
+    </div>
+  </div>
+</div>

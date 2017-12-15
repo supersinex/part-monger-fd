@@ -1,49 +1,52 @@
-<!-- Page Container -->
-<div class="pageContainer container-fluid mt-2">
-  <h2>Web Inventory Management Application</h2>
-  <hr>
-  <!-- Heading and Buttons -->
-  <div class="row">
-    <div class=" col-6 float-left;">
-      <h2>Parts</h2>
-    </div>
-    <div class="col-6">
-      <button class="appButton float-right">Add Part</button>
-    </div>
+<!-- Heading and Buttons -->
+<div class="row">
+  <div class=" col-11 float-left;">
+    <h2>Parts</h2>
   </div>
-  <div class="row partRowHeaders">
-    <div class="col-sm-1">
-      Thumbnail
-    </div>
-    <div class="col-sm-3">
-      Part Name
-    </div>
-    <div class="col-sm-1">
-      Part Number
-    </div>
-    <div class="col-sm-6">
-      Description
-    </div>
-    <div class="col-sm-1">
-      <span class="float-right">In Stock</span>
-    </div>
+  <div class="col-1">
+    <button class="appButton float-right" (click)="addPart()">Add Part</button>
   </div>
-  <!-- Parts -->
-  <div class="row partRow" *ngFor='let part of parts'>
-    <div class="col-sm-12 col-lg-1">
-      <img class="partImage" src="{{part?.image}}">
-    </div>
-    <div class="col-sm-12 col-lg-3">
-      <span class="partName">{{part?.name}}</span>
-    </div>
-    <div class="col-sm-12 col-lg-1 d-none d-lg-block">
-      {{part?.partNumber}}
-    </div>
-    <div class="col-sm-12 col-lg-6 d-none d-lg-block">
-      {{part?.description | truncate : 100}}
-    </div>
-    <div class="col-sm-12 col-lg-1">
-      <span class="inStock"><span class="d-lg-none">In-Stock: </span>{{part?.inStock}}</span>
-    </div>
+</div>
+<!-- Headers -->
+<div class="row partRowHeaders">
+  <div class="col-sm-1">
+    Thumbnail
+  </div>
+  <div class="col-sm-3">
+    Part Name
+  </div>
+  <div class="col-sm-1">
+    Part Number
+  </div>
+  <div class="col-sm-1">
+    Cost
+  </div>
+  <div class="col-sm-5">
+    Description
+  </div>
+  <div class="col-sm-1">
+    <span class="float-right">In Stock</span>
+  </div>
+</div>
+<!-- Parts -->
+<div class="row partRow" *ngFor='let part of parts' (click)="goToPartDetails(part?.id)">
+  <div class="col-sm-12 col-lg-1">
+    <img class="partImage" src="{{part?.image}}">
+  </div>
+  <div class="col-sm-12 col-lg-3">
+    <span class="partName">{{part?.name}}</span>
+  </div>
+  <div class="col-sm-12 col-lg-1 d-none d-lg-block">
+    {{part?.partNumber ? part.partNumber : "Nothing"}}
+  </div>
+  <div class="col-sm-12 col-lg-1">
+    ${{part?.cost}}
+  </div>
+  <div class="col-sm-12 col-lg-5 d-none d-lg-block">
+    {{part?.description | truncate : 100}}
+  </div>
+  <div class="col-sm-12 col-lg-1">
+    <span class="inStock">
+      <span class="d-lg-none">In-Stock: </span>{{part?.inStock}}</span>
   </div>
 </div>
